@@ -1,0 +1,47 @@
+--------------------------------------------------------------------
+https://www.geeksforgeeks.org/scrape-linkedin-using-selenium-and-beautiful-soup-in-python/
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+Sure, here are the steps to download and install the chromedriver binary file from the Chromium website:
+
+Go to the following URL: https://sites.google.com/a/chromium.org/chromedriver/downloads
+
+Scroll down to the section that says "Latest Release: ChromeDriver X.X.X.X" and find the version that corresponds to your Chrome browser version (you can check your Chrome version by typing "chrome://settings/help" in the address bar).
+
+Click on the corresponding link for your operating system to download the chromedriver binary file.
+
+Once the file has finished downloading, extract it from the zip file and save it to a location on your computer (e.g. /usr/local/bin/chromedriver).
+
+Add the location of the chromedriver binary file to your system path. This can be done by adding the following line to your ~/.bash_profile file:
+
+export PATH="$PATH:/path/to/chromedriver"
+
+Replace "/path/to/chromedriver" with the actual location of the chromedriver binary file on your computer.
+
+Save the changes to your ~/.bash_profile file and exit.
+
+Open a new terminal window or source your ~/.bash_profile file to apply the changes to your system path.
+
+After following these steps, you should be able to use the chromedriver binary file with your Python code.
+
+TEST IT 
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from chromedriver_py import binary_path
+
+service_object = Service(binary_path)
+driver = webdriver.Chrome(service=service_object)
+
+# deprecated but works in older selenium versions
+# driver = webdriver.Chrome(executable_path=binary_path)
+driver.get("http://www.example.com")
+assert "Example Domain" in driver.title
+
+# do more browser automation here
+
+driver.quit()
+
+--------------------------------------------------------------------
+
+
